@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    container_name: track-coverage-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - coverage-data:/data
+    environment:
+      COVERAGE_DB: /data/coverage.db
+    restart: unless-stopped
+
+volumes:
+  coverage-data:
